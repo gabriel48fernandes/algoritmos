@@ -48,15 +48,27 @@ console.log (" -ver minhas compras ")
 }
 
 
-
-
-
 function falar_com_suporte(){
 
-console.log ( " -entrar em contado via whatsapp " )
-console.log (" -reclamações ")
-console.log (" -numero de contato " ) 
+console.log ( " 1-entrar em contado via whatsapp " )
+console.log (" 2-reclamações ")
+console.log (" 3-numero de contato " )
+const suporte=prompt(" escolha uma opção ")
+console.log (" voce escolheu " )
+switch (suporte) {
+    case "1":
+        console.log (" segue o link para whatsapp  >>  ")
+        break
+    case "2":
+        console.log (" segue o limk para reclamações: ")
+        break
+        case "3":
+            console.log ( " segue o numero de contato : - 51 991946185 ")
+            break
 }
+
+
+
 
 function produtomenu(){
 console.log (" 1 -insufilme garvareBlack " )
