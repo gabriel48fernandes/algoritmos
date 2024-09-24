@@ -1,5 +1,5 @@
 const prompt = require ("prompt-sync")()
- console.log (" ------INSUFILMES AUTO CENTER------ ")
+ console.log ( " ------INSUFILMES AUTO CENTER------ ")
  console.log(" ")
 console.log (" 1- COMPRAR PRODUTOS ")
 console.log (" 2- FALAR COM SUPORTE  " )
@@ -48,6 +48,9 @@ console.log (" -ver minhas compras ")
 }
 
 
+
+
+
 function falar_com_suporte(){
 
 console.log ( " 1-entrar em contado via whatsapp " )
@@ -66,9 +69,7 @@ switch (suporte) {
             console.log ( " segue o numero de contato : - 51 991946185 ")
             break
 }
-
-
-
+}
 
 function produtomenu(){
 console.log (" 1 -insufilme garvareBlack " )
