@@ -1,0 +1,131 @@
+// Importa o módulo prompt-sync para capturar entradas do usuário
+const prompt = require('prompt-sync')({ sigint: true });
+
+// Inicializa o tabuleiro vazio
+let tabuleiro = [
+  [' ', ' ', ' '],
+  [' ', ' ', ' '],
+  [' ', ' ', ' ']
+];
+
+/**
+ * Exibe o tabuleiro no console.
+ */
+function exibirTabuleiro() {
+  console.clear();
+  console.log('Jogo da Velha\n');
+  console.log('  0   1   2');
+  tabuleiro.forEach((linha, index) => {
+    console.log(`${index} ${linha.join(' | ')}`);
+    if (index < 2) console.log('  ---------');
+  });
+  console.log('\n');
+}
+
+/**
+ * Verifica se há um vencedor.
+ * @returns {string|null} Retorna 'X', 'O' ou null se não houver vencedor.
+ */
+function verificarVitoria() {
+  const vitorias = [
+    // Linhas
+    [[0, 0], [0, 1], [0, 2]],
+    [[1, 0], [1, 1], [1, 2]],
+    [[2, 0], [2, 1], [2, 2]],
+    // Colunas
+    [[0, 0], [1, 0], [2, 0]],
+    [[0, 1], [1, 1], [2, 1]],
+    [[0, 2], [1, 2], [2, 2]],
+    // Diagonais
+    [[0, 0], [1, 1], [2, 2]],
+    [[0, 2], [1, 1], [2, 0]]
+  ];
+
+  for (const condicao of vitorias) {
+    const [a, b, c] = condicao;
+    if (
+      tabuleiro[a[0]][a[1]] !== ' ' &&
+      tabuleiro[a[0]][a[1]] === tabuleiro[b[0]][b[1]] &&
+      tabuleiro[a[0]][a[1]] === tabuleiro[c[0]][c[1]]
+    ) {
+      return tabuleiro[a[0]][a[1]];
+    }
+  }
+
+  return null;
+}
+
+/**
+ * Verifica se o tabuleiro está cheio (empate).
+ * @returns {boolean} Retorna true se estiver cheio, false caso contrário.
+ */
+function verificarEmpate() {
+  return tabuleiro.flat().every(casa => casa !== ' ');
+}
+
+/**
+ * Processa a jogada de um jogador.
+ * @param {string} jogador - 'X' ou 'O'.
+ * @param {number} linha - Linha escolhida (0-2).
+ * @param {number} coluna - Coluna escolhida (0-2).
+ * @returns {boolean} Retorna true se a jogada foi válida, false caso contrário.
+ */
+function jogar(jogador, linha, coluna) {
+  if (
+    Number.isInteger(linha) &&
+    Number.isInteger(coluna) &&
+    linha >= 0 && linha <= 2 &&
+    coluna >= 0 && coluna <= 2
+  ) {
+    if (tabuleiro[linha][coluna] === ' ') {
+      tabuleiro[linha][coluna] = jogador;
+      return true;
+    } else {
+      console.log('Essa posição já está ocupada. Tente novamente.');
+      return false;
+    }
+  } else {
+    console.log('Posição inválida. Use números entre 0 e 2.');
+    return false;
+  }
+}
+
+/**
+ * Função principal que inicia e controla o fluxo do jogo.
+ */
+function iniciarJogo() {
+  let jogadorAtual = 'X';
+  let vencedor = null;
+
+  while (!vencedor && !verificarEmpate()) {
+    exibirTabuleiro();
+    console.log(`Vez do jogador: ${jogadorAtual}`);
+
+    let linha, coluna;
+    while (true) {
+      linha = parseInt(prompt(`Escolha a linha (0, 1, 2): `));
+      coluna = parseInt(prompt(`Escolha a coluna (0, 1, 2): `));
+
+      if (jogar(jogadorAtual, linha, coluna)) {
+        break;
+      }
+    }
+
+    vencedor = verificarVitoria();
+
+    if (!vencedor) {
+      jogadorAtual = jogadorAtual === 'X' ? 'O' : 'X';
+    }
+  }
+
+  exibirTabuleiro();
+
+  if (vencedor) {
+    console.log(`Parabéns! O jogador ${vencedor} venceu!`);
+  } else {
+    console.log('Empate! O jogo terminou sem vencedores.');
+  }
+}
+
+// Inicia o jogo
+iniciarJogo();
