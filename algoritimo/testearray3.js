@@ -1,7 +1,7 @@
 let original = [10, 20, 30, 40, 50]
-let inverso =(original.length);
+let inverso = []
 
 for (let i = 0; i < original.length; i++) {
-    inverso[i] = original[original.length - 1 - i]
-    console.log (inverso)
-}
+    inverso[original.length - 1 - i]= original[i]
+  }
+  console.log (inverso)
