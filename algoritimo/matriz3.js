@@ -14,9 +14,6 @@ let paisesPopulacao = [
     ["Canadá", 37742154]
 ];
 
-// Objeto para armazenar países e suas capitais
-let paisesCapital = {};
-
 // Função para encontrar o país com maior população
 function paisComMaiorPopulacao() {
     let paisComMaishabitantes = "";
@@ -31,23 +28,21 @@ function paisComMaiorPopulacao() {
     console.log("Maior população: " + paisComMaishabitantes + " (" + maiorPopulacao + " habitantes)");
 }
 
-// Função para adicionar país (população e capital)
+// Função para adicionar país (apenas população)
 function adicionarPais() {
     let nomePais = prompt("Digite o nome do país que deseja adicionar: ");
     let habitantes = parseInt(prompt("Digite a população do país: "));
-    let capitalPais = prompt("Digite a capital do país: ");
 
-    // Adiciona o país na lista de populações e no objeto de capitais
+    // Adiciona o país na lista de populações
     paisesPopulacao.push([nomePais, habitantes]);
-    paisesCapital[nomePais] = capitalPais;
 
     // Ordena a lista de países por população em ordem decrescente
     paisesPopulacao.sort((a, b) => b[1] - a[1]);
 
-    console.log("País " + nomePais + " com a capital " + capitalPais + " e " + habitantes + " habitantes foi adicionado.\n");
+    console.log("País " + nomePais + " com " + habitantes + " habitantes foi adicionado.\n");
 }
 
-// Função para pesquisar por população ou capital
+// Função para pesquisar por população
 function pesquisarPais() {
     let nomePais = prompt("Digite o nome do país que deseja pesquisar: ");
     let encontradoPopulacao = false;
@@ -61,10 +56,7 @@ function pesquisarPais() {
         }
     }
 
-    // Pesquisa na lista de capitais
-    if (paisesCapital[nomePais]) {
-        console.log("A capital de " + nomePais + " é " + paisesCapital[nomePais]);
-    } else if (!encontradoPopulacao) {
+    if (!encontradoPopulacao) {
         console.log("País " + nomePais + " não encontrado.\n");
     }
 }
@@ -93,11 +85,10 @@ function menu() {
                 paisComMaiorPopulacao();
                 break;
             case "4":
-                    // Ordena a lista de países por população em ordem decrescente
-                 paisesPopulacao.sort((a, b) => b[1] - a[1]);
+                // Ordena a lista de países por população em ordem decrescente
+                paisesPopulacao.sort((a, b) => b[1] - a[1]);
                 console.table(paisesPopulacao);
                 break;
-                
             case "5":
                 console.log("Saindo do programa.");
                 break;
