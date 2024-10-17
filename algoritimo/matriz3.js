@@ -41,6 +41,14 @@ function adicionarPais() {
 
     console.log("País " + nomePais + " com " + habitantes + " habitantes foi adicionado.\n");
 }
+function excluirPais (){
+    let paisApagado= prompt("qual pais voce deseja excluir?")
+    for (let i=0; i<paisesPopulacao.length; i++){
+        if (paisesPopulacao[i][0]== (paisApagado))
+            paisesPopulacao.splice (i, 1)
+    }
+}
+
 
 // Função para pesquisar por população
 function pesquisarPais() {
@@ -65,26 +73,30 @@ function pesquisarPais() {
 function menu() {
     let opcao;
     do {
-        console.log("\n--- MENU ---");
-        console.log("1. Adicionar um país");
-        console.log("2. Pesquisar um país");
-        console.log("3. Mostrar o país com maior população");
-        console.log("4. Mostrar todos os países e populações");
-        console.log("5. Sair");
+        console.log("\n--- MENU ---")
+        console.log("1. Adicionar um país")
+        console.log ("2. Excluir país " )
+        console.log("3. Pesquisar um país")
+        console.log("4. Mostrar o país com maior população")
+        console.log("5. Mostrar todos os países e populações em ordem decrecente")
+        console.log("6. Sair")
 
-        opcao = prompt("Digite o número da opção desejada: ");
+        opcao = prompt("Digite o número da opção desejada: ")
 
         switch(opcao) {
             case "1":
                 adicionarPais();
                 break;
             case "2":
+                excluirPais()
+                break
+            case "3":
                 pesquisarPais();
                 break;
-            case "3":
+            case "4":
                 paisComMaiorPopulacao();
                 break;
-            case "4":
+            case "5":
                 // Ordena a lista de países por população em ordem decrescente
                 paisesPopulacao.sort((a, b) => b[1] - a[1]);
                 console.table(paisesPopulacao);
@@ -95,7 +107,7 @@ function menu() {
             default:
                 console.log("Opção inválida. Tente novamente.\n");
         }
-    } while (opcao !== "5");
+    } while (opcao !== "6");
 }
 
 // Executa o menu
