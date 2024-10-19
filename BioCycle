@@ -1,0 +1,35 @@
+1. Gestão de Resíduos Hospitalares
+* Registro de pesagem : Cada vez que os resíduos recicláveis ​​sejam pesados, o sistema permitirá o registro detalhado do tipo de material, peso e unidade responsável pela coleta.
+      ** Cálculo de Valores ** 
+* Valor Bruto : O sistema calculará automaticamente o valor de revenda com base no peso dos materiais recicláveis.
+* Dedução da Taxa da Cooperativa : A taxa da cooperativa de resíduos será deduzida, demonstrando o valor líquido a ser recebido.
+* Histórico de Pesagens : Manter um histórico detalhado das pesagens, permitindo análises mensais ou anuais, como o total reciclado, valores obtidos e comparativos entre períodos.
+* Dashboard : Tela com indicadores chave, como o volume total reciclado, valores recebidos e uma visualização por tipo de material (papel, plástico, vidro, etc.).
+
+2. Gestão Financeira
+* Relatórios de Receitas : Relatórios detalhados sobre os valores gerados com a venda de resíduos recicláveis, considerando as taxas e os lucros.
+* Emissão de Documentos : Geração automática de notas fiscais ou comprovantes, tanto para a cooperativa quanto para o hospital.
+
+3. Agenda de Palestras e Treinamentos
+* Calendário de Eventos : Função para gerenciar e agendar palestras e treinamentos nos hospitais. O sistema incluiria:
+* Data e hora do evento.
+* Setor ou unidade do hospital.
+* Temas das palestras.
+* Nome dos palestrantes.
+* Notificações : Envio de lembretes automáticos aos funcionários do hospital sobre as palestras agendadas.
+* Cadastro de Participantes : Registro de funcionários inscritos nas palestras, permitindo geração de certificados e relatórios de presença.
+
+4. Relatórios e Integração
+* Exportação de Relatórios : O sistema permite a exportação de dados de pesagem e palestras em formatos como Excel ou PDF.
+* Integração com Sistemas Financeiros : Caso seja necessário, o sistema pode integrar-se a sistemas de gestão empresarial (ERP) ou financeiros, facilitando a gestão contábil e fiscal.
+
+5. Gestão de Usuários e Segurança
+* Perfis de Usuário : Diferentes níveis de acesso para usuários (administrador, operador de pesagem, coordenador de treinamentos), garantindo segurança e organização.
+* Histórico de Atividades : Registro de ações realizadas no sistema para garantir rastreabilidade e auditorias.
+
+6. Sustentabilidade e Impacto Ambiental
+* Indicadores Ambientais : O sistema pode gerar relatórios de impacto ambiental, como a quantidade de CO₂ evitada ou o volume de resíduos reciclados.
+* Incentivos por desempenho : Criar um mecanismo de gamificação, recompensando setores ou hospitais com melhor desempenho na gestão de resíduos e reciclagem.
+* Esse sistema pode ser desenvolvido como um aplicativo web ou app mobile , garantindo acessibilidade para diversos usuários. Para operações maiores, vale considerar a automação do registro de pesagem com sensores de pesagem eletrônicos integrados ao sistema.
+
+Essa ideia dá facilidade para atender tanto às necessidades de gerenciamento de resíduos quanto às demandas de treinamentos nos hospitais.
